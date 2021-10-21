@@ -15,11 +15,12 @@ function PokemonDetails({ match }) {
 
   useEffect(() => {
     fetchItem();
-  })
+  }, [])
 
   const fetchItem = async () => {
     const fetchItem = await fetch(`https://pokeapi.co/api/v2/pokemon/${match.params.name}`);
     const item = await fetchItem.json();
+    console.log(item);
     setItem({
       name: item.name,
       species: item.species.name,
